@@ -1,0 +1,11 @@
+<launch>
+    <!-- <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+        name="laser_filter">
+      <rosparam command="load" file="$(find filter)/config/my_laser_config.yaml" />
+      <remap from="scan" to="scan" />
+    </node> -->
+  <node pkg="filter" type="laser_to_cloud" name="laser_to_cloud" output="screen"/>
+  <node pkg="filter" type="filter_noise" name="filter_nose" output="screen"/>
+  <node pkg="filter" type="filter_morphological" name="filter_morphological" output="screen"/>
+</launch>
+  

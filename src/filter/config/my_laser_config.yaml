@@ -1,0 +1,32 @@
+scan_filter_chain:
+- name: range
+  type: laser_filters/LaserScanRangeFilter
+  params:
+    use_message_range_limits: false
+    lower_threshold: 0.1
+    upper_threshold: .inf
+    lower_replacement_value: -.inf
+    upper_replacement_value: .inf
+
+- name: angle
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: 0.685398163
+    upper_angle: 0.885398163
+
+- name: angle2
+  type: laser_filters/LaserScanAngularBoundsFilter
+  params:
+    lower_angle: -1.57
+    upper_angle: 1.57
+
+- name: box
+  type: laser_filters/LaserScanBoxFilter
+  params:
+    box_frame: scan_link
+    min_x: -1.0
+    max_x: 1.0
+    min_y: -1.0
+    max_y: 1.0
+    min_z: -1.0
+    max_z: 1.0
